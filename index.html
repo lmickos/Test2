@@ -64,9 +64,9 @@
         <p class="lead">Use this table to view and filter/sort data</p>
       </div>
       <table>
-        <tr ng-repeat="x in movies">
-          <td>{{ x.Title }}</td>
-          <td>{{ x.Year }}</td>
+        <tr ng-repeat="movie in movies | orderBy:orderByColumn:direction ">
+          <td>{{ movie.Title }}</td>
+          <td>{{ movie.Year }}</td>
         </tr>
       </table>
     </div><!-- /.container -->
