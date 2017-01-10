@@ -3,7 +3,12 @@
   <p class="lead">Use this table to view and filter/sort data</p>
 </div>
 <ul class="list-group">
-  <li class="list-group-item" ng-repeat="movie in movies | orderBy:orderByColumn:direction ">
-    {{ movie.Title }}
+  <li class="list-group-item" ng-repeat="movie in movies | orderBy:orderByColumn:direction " ng-click="movie.hidedetails=!movie.hidedetails">
+    {{ movie.Title }},
+    {{ movie.Writer }},
+    {{ movie.Country }}
+      <div ng-show="movie.hidedetails===true">
+        dfsdf
+      </div>
   </li>
 </ul>
