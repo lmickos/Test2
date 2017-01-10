@@ -4,11 +4,84 @@
 </div>
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="movie in movies | orderBy:orderByColumn:direction " ng-click="movie.hidedetails=!movie.hidedetails">
-    {{ movie.Title }},
-    {{ movie.Writer }},
-    {{ movie.Country }}
-      <div ng-show="movie.hidedetails===true">
-        dfsdf
+    <div class="row">
+      <h3 class="col-md-12">{{ movie.Title }}</h3>
+    </div>
+    <div ng-show="movie.hidedetails===true">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-2 movies-propertyname">Actors</div>
+            <div class="col-md-7">{{ movie.Actors }}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 movies-propertyname">Year</div>
+            <div class="col-md-2">{{ movie.Year }}</div>
+            <div class="col-md-2 movies-propertyname">Released</div>
+            <div class="col-md-3">{{ movie.Released }}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 movies-propertyname">Runtime</div>
+            <div class="col-md-2">{{ movie.Runtime }}</div>
+            <div class="col-md-2 movies-propertyname">Genre</div>
+            <div class="col-md-6">{{ movie.Genre }}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 movies-propertyname">Director</div>
+            <div class="col-md-2">{{ movie.Director }}</div>
+            <div class="col-md-2 movies-propertyname">Rated</div>
+            <div class="col-md-2">{{ movie.Rated }}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 movies-propertyname">Writer</div>
+            <div class="col-md-10">{{ movie.Writer }}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 movies-propertyname">Country</div>
+            <div class="col-md-2">{{ movie.Country }}</div>
+            <div class="col-md-2 movies-propertyname">Language</div>
+            <div class="col-md-6">{{ movie.Language }}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 movies-propertyname">Type</div>
+            <div class="col-md-2">{{ movie.Type }}</div>
+            <div class="col-md-2 movies-propertyname">Metascore</div>
+            <div class="col-md-2">{{ movie.Metascore }}</div>
+            <!-- Perceived as an internal data not suitable for end user
+            <div class="col-md-2 movies-propertyname">Response</div>
+            <div class="col-md-2">{{ movie.Response }}</div>
+            -->
+          </div>
+          <div class="row">
+            <div class="col-md-2 movies-propertyname">Imdb</div>
+            <div class="col-md-2 ">Rating: {{ movie.imdbRating }}</div>
+            <div class="col-md-2 ">Votes: {{ movie.imdbVotes }}</div>
+            <div class="col-md-6 ">ID: {{ movie.imdbID }}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 movies-propertyname">Awards</div>
+            <div class="col-md-10">{{ movie.Awards }}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 movies-propertyname">Plot</div>
+            <div class="col-md-10">{{ movie.Plot }}</div>
+          </div>
+        </div>
+        <div class="col-md-2" ng-show="movie.Poster" >
+          <a href="{{ movie.Poster }}">
+            <img class="img-thumbnail mx-1 movie-image" src="{{ movie.Poster }}"></img>
+          </a>
+        </div>
+      </div>
+      <div>
+        <!--
+        <div class="row">
+          <div class="col-md-1 movies-propertyname">Title</div>
+          <div class="col-md-3">{{ movie.Title }}</div>
+        </div>
+      -->
+        <div>
       </div>
   </li>
 </ul>
