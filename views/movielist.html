@@ -2,43 +2,71 @@
   <h1>Movies List</h1>
   <p class="lead">Use this list to view movie information. Click a movie for more details!</p>
 </div>
+<div class="panel panel-primary">
+  <div class="panel-heading">Filter</div>
+  <div class="panel-body">
+    <div class="col-md-12">To filter movies list enter partial text in one or more of the following forms:</div>
+    <div class="col-md-3">Country: <input ng-model="searchCountry"></div>
+    <div class="col-md-3">Writer: <input ng-model="searchWriter"></div>
+    <div class="col-md-3">Genre: <input ng-model="searchGenre"></div>
+  </div>
+</div>
+
 <ul class="list-group">
-  <li class="list-group-item" ng-repeat="movie in movies | orderBy:orderByColumn:direction " ng-click="movie.hidedetails=!movie.hidedetails">
+  <li class="list-group-item" ng-repeat="movie in movies | orderBy:orderByColumn:direction | movieFilter:searchCountry:searchWriter:searchGenre" ng-click="movie.hidedetails=!movie.hidedetails">
     <div class="row">
       <h3 class="col-md-12">{{ movie.Title }}</h3>
+    </div>
+    <div class="row">
+      <div ng-show="searchCountry">
+        <label class="col-md-2">Country hits:</label>
+        <span ng-bind-html="movie.Country|highlight:searchCountry"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div ng-show="searchWriter" >
+        <label class="col-md-2">Writer hits:</label>
+        <span ng-bind-html="movie.Writer|highlight:searchWriter"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div ng-show="searchGenre" >
+        <label class="col-md-2">Search hits:</label>
+        <span ng-bind-html="movie.Genre|highlight:searchGenre"></span>
+      </div>
     </div>
     <div ng-show="movie.hidedetails===true">
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-9">
           <div class="row">
-            <div class="col-md-2 movies-propertyname">Actors</div>
+            <label class="col-md-2">Actors</label>
             <div class="col-md-7">{{ movie.Actors }}</div>
           </div>
           <div class="row">
-            <div class="col-md-2 movies-propertyname">Year</div>
+            <label class="col-md-2 movies-propertyname">Year</label>
             <div class="col-md-2">{{ movie.Year }}</div>
-            <div class="col-md-2 movies-propertyname">Released</div>
+            <label class="col-md-2 movies-propertyname">Released</label>
             <div class="col-md-3">{{ movie.Released }}</div>
           </div>
           <div class="row">
-            <div class="col-md-2 movies-propertyname">Runtime</div>
+            <label class="col-md-2 movies-propertyname">Runtime</label>
             <div class="col-md-2">{{ movie.Runtime }}</div>
-            <div class="col-md-2 movies-propertyname">Genre</div>
+            <label class="col-md-2 movies-propertyname">Genre</label>
             <div class="col-md-6">{{ movie.Genre }}</div>
           </div>
           <div class="row">
-            <div class="col-md-2 movies-propertyname">Director</div>
+            <label class="col-md-2 movies-propertyname">Director</label>
             <div class="col-md-2">{{ movie.Director }}</div>
-            <div class="col-md-2 movies-propertyname">Rated</div>
+            <label class="col-md-2 movies-propertyname">Rated</label>
             <div class="col-md-2">{{ movie.Rated }}</div>
           </div>
           <div class="row">
-            <div class="col-md-2 movies-propertyname">Writer</div>
+            <label class="col-md-2 movies-propertyname">Writer</label>
             <div class="col-md-10">{{ movie.Writer }}</div>
           </div>
           <div class="row">
-            <div class="col-md-2 movies-propertyname">Country</div>
+            <label class="col-md-2 movies-propertyname">Country</label>
             <div class="col-md-2">{{ movie.Country }}</div>
             <div class="col-md-2 movies-propertyname">Language</div>
             <div class="col-md-6">{{ movie.Language }}</div>
@@ -75,12 +103,6 @@
         </div>
       </div>
       <div>
-        <!--
-        <div class="row">
-          <div class="col-md-1 movies-propertyname">Title</div>
-          <div class="col-md-3">{{ movie.Title }}</div>
-        </div>
-      -->
         <div>
       </div>
   </li>
