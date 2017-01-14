@@ -47,7 +47,9 @@ suffice. In fact the application can be demonstrated directly on GitHub
 
 Running
 -------
-[The application can be viewed directly on GitHub](https://lmickos.github.io/Test2/index.html "Go to the application")
+[The application primary page can be viewed directly on GitHub](https://lmickos.github.io/Test2/index.html "Go to the application")
+
+[Go directly to the list view implementing the requested features](https://lmickos.github.io/Test2/index.html#/movielist "Go to the list view")
 
 Extensibility
 -------------
