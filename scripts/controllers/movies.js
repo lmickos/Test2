@@ -10,4 +10,12 @@ angular.module('movielist')
     MovieService.get(function(data) {
       $scope.movies = data.Movies;
     });
+    // Function to handle reordering of the table
+    $scope.orderBy = function(orderByColumn) {
+      if ($scope.orderByColumn === orderByColumn) {
+          $scope.direction = !$scope.direction;
+      } else {
+        $scope.orderByColumn = orderByColumn;
+      }
+    };
 });

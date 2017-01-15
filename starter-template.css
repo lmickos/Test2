@@ -9,3 +9,7 @@ body {
 .movies-propertyname {
   font-weight: bold;
 }
+
+.movies-table-header {
+  white-space: nowrap;
+}
